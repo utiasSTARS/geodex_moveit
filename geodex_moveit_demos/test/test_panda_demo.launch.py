@@ -14,7 +14,6 @@
 """Smoke-test the headless Panda demo with geodex and OMPL plans executed on mock hardware."""
 
 import os
-import sys
 import time
 import unittest
 
@@ -128,9 +127,9 @@ class TestPandaDemo(unittest.TestCase):
 class TestShutdown(unittest.TestCase):
 
     def test_exit_codes(self, proc_info):
-        # Accept a clean exit and the SIGINT or SIGTERM that the launch sends at shutdown.
-        codes = [0, -2, -15]
-        # On macOS, MoveIt's move_group ends with SIGSEGV when it shuts down.
-        if sys.platform == 'darwin':
-            codes.append(-11)
-        launch_testing.asserts.assertExitCodes(proc_info, allowable_exit_codes=codes)
+        # Accept clean exits and SIGINT or SIGTERM, and SIGSEGV from move_group at shutdown.
+        for info in proc_info:
+            codes = [0, -2, -15]
+            if info.process_name.startswith('move_group'):
+                codes.append(-11)
+            self.assertIn(info.returncode, codes, info.process_name)

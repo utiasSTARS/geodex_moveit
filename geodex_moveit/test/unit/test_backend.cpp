@@ -655,6 +655,15 @@ TEST(Backend, EveryReturnedStateIsVerified)
   EXPECT_TRUE(r.path.empty());
 }
 
+/// Waits 100 microseconds. A sleep this short lasts much longer on macOS.
+void spin100us()
+{
+  const auto end = std::chrono::steady_clock::now() + std::chrono::microseconds(100);
+  while (std::chrono::steady_clock::now() < end) {
+    std::this_thread::yield();
+  }
+}
+
 // A seeded request is timed once with room to spare, then run again with a budget that ends
 // during smoothing. The second call ends at the budget with the planner's path. A cancel during
 // smoothing ends the call at once. The slow oracle makes smoothing long compared with scheduling
@@ -663,13 +672,13 @@ TEST(Backend, SmoothingKeepsTheBudgetAndStopsOnCancel)
 {
   const auto backend = PlannerBackend::create("", "euclidean", 2);
   const FnOracle slow(2, [](const double * q) {
-    std::this_thread::sleep_for(std::chrono::microseconds(100));
+    spin100us();
     return std::abs(q[0]) > 0.07 || q[1] > 0.3;
   });
   // The planner and the smoother keep the margin of the evenly spaced waypoints.
   constexpr double kMargin = 0.5 * 0.005 + 1e-4;
   const FnOracle slow_planning(2, [](const double * q) {
-    std::this_thread::sleep_for(std::chrono::microseconds(100));
+    spin100us();
     return std::abs(q[0]) > 0.07 + kMargin || q[1] > 0.3 + kMargin;
   });
   PlannerSettings settings;
