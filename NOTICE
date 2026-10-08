@@ -1,0 +1,18 @@
+geodex_moveit
+Copyright 2026 Space and Terrestrial Autonomous Robotic Systems (STARS) Lab
+
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This repository includes the following third-party files.
+
+Franka Robotics FR3 description (geodex_moveit_demos/robots/fr3_arm_gripper/,
+geodex_moveit/test/fixtures/fr3_shelf_replay/), derived from franka_description and
+franka_fr3_moveit_config, Copyright Franka Robotics GmbH, Apache License 2.0
+(geodex_moveit_demos/robots/fr3_arm_gripper/LICENSE.franka_description).
+
+Robotiq 2F-85 description in the same files, derived from ros2_robotiq_gripper, Copyright (c)
+2022 PickNik Robotics, BSD 3-Clause License
+(geodex_moveit_demos/robots/fr3_arm_gripper/LICENSE.ros2_robotiq_gripper).
+
+The build of geodex_moveit_demos downloads the visual meshes of the FR3 from franka_description
+and of the Robotiq 2F-85 from ros2_robotiq_gripper, and installs them with both licenses.

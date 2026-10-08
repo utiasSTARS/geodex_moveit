@@ -1,0 +1,8 @@
+# This overlay on fr3_shelf_geodex.yaml plans the FR3 shelf demo under the kinetic-energy metric.
+metric: kinetic_energy
+planner:
+  config:
+    grrtstar:
+      range: 0.6
+smoothing:
+  time_fraction: 0.3

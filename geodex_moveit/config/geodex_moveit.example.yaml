@@ -1,0 +1,42 @@
+# This file sets every geodex_moveit parameter for a planning pipeline named "geodex", in ROS
+# parameter-file form. The values are examples, and params/geodex_moveit_parameters.yaml holds the
+# defaults.
+/**:
+  ros__parameters:
+    geodex:
+      robot: panda
+      metric: kinetic_energy
+      checker: vamp
+      base_link: panda_link0
+      end_effector_link: panda_hand
+      end_effector_offset: [0.0, 0.0, 0.105, 0.0, 0.0, 0.0]
+      attachment_padding: 0.002
+      obstacle_padding: 0.003
+      exact_attached_box: false
+      exact_attached_box_margin: 0.002
+      attached_object:
+        link: panda_hand
+        box_size: [0.04, 0.24, 0.16]
+        box_pose: [0.0, 0.0, 0.1, 0.0, 0.0, 1.5708]
+        spheres: [0.0, 0.0, 0.07, 0.03, 0.0, 0.0, 0.13, 0.03]
+      ignore_unsupported_shapes: true
+      planner:
+        config:
+          grrtstar:
+            range: 0.6
+            greedy_biasing_ratio: 0.8
+            rewire_factor: 1.2
+            max_neighbors: 64
+            greedy_cost_for_tree_pruning: false
+        termination: first
+        collision_check_resolution: 0.005
+        edge_motion_validator: false
+        ik_timeout: 0.2
+        max_iterations: 5000
+        seed: 3
+      smoothing:
+        enabled: false
+        output_spacing: 0.02
+        round_corners: false
+        seed: 7
+        time_fraction: 0.3

@@ -1,0 +1,14 @@
+group: fr3_arm
+metric: euclidean
+dof: 7
+seed: 1
+max_iterations: 1500
+robot: fr3_arm_gripper
+checker: vamp
+exact_attached_box: 1
+exact_attached_box_margin: 0.001
+attachment_padding: 0
+obstacle_padding: 0.00040400000000000001
+collision_check_resolution: 0.002
+output_spacing: 0.01
+round_corners: 1

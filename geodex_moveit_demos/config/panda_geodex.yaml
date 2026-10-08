@@ -1,0 +1,8 @@
+# geodex_moveit parameters for the Panda of moveit_resources. Every other parameter keeps the
+# default of geodex_moveit/params/geodex_moveit_parameters.yaml.
+robot: panda
+planner:
+  collision_check_resolution: 0.01
+obstacle_padding: 0.0241
+end_effector_link: panda_hand
+end_effector_offset: [0.0, 0.0, 0.105, 0.0, 0.0, 0.0]

@@ -1,0 +1,13 @@
+# This file adds geodex_moveit to a MoveIt planning pipeline. Load it under the pipeline's name,
+# for example "geodex", and set the parameters of params/geodex_moveit_parameters.yaml that a
+# robot needs in the robot's own file.
+planning_plugins:
+  - geodex_moveit/GeodexPlanner
+request_adapters:
+  - default_planning_request_adapters/ResolveConstraintFrames
+  - default_planning_request_adapters/ValidateWorkspaceBounds
+  - default_planning_request_adapters/CheckStartStateBounds
+  - default_planning_request_adapters/CheckStartStateCollision
+response_adapters:
+  - default_planning_response_adapters/AddTimeOptimalParameterization
+  - default_planning_response_adapters/ValidateSolution

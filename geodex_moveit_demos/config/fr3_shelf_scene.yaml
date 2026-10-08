@@ -1,0 +1,54 @@
+# The scene of the FR3 shelf demo, an FR3 with a Robotiq 2F-85. An IKEA BILLY
+# shelf of seven boards stands in fr3_link0. The gripper holds a 0.04 x 0.24 x 0.16 m box between
+# its finger pads, with the 40 mm side along the x axis of 2f85_tcp and the box center 0.055 m along
+# its z axis. MoveIt checks the exact box, and the vamp checker checks the sphere that encloses it.
+world:
+- id: shelf
+  frame_id: fr3_link0
+  pose:
+    position: [0.0, 0.0, 0.0]
+    orientation: [0.0, 0.0, 0.0, 1.0]
+  primitives:
+  - type: box
+    dimensions: [0.018, 0.28, 1.06]
+    position: [0.7934920000000001, 0.6187180001603909, 0.53]
+    orientation: [0.0, 0.0, 1.0, -2.0510342851533115e-10]
+  - type: box
+    dimensions: [0.018, 0.28, 1.06]
+    position: [0.011492000000000002, 0.6187179998396091, 0.53]
+    orientation: [0.0, 0.0, 1.0, -2.0510342851533115e-10]
+  - type: box
+    dimensions: [0.8, 0.28, 0.018]
+    position: [0.402492, 0.618718, 1.051]
+    orientation: [0.0, 0.0, 1.0, -2.0510342851533115e-10]
+  - type: box
+    dimensions: [0.764, 0.28, 0.08]
+    position: [0.402492, 0.618718, 0.04]
+    orientation: [0.0, 0.0, 1.0, -2.0510342851533115e-10]
+  - type: box
+    dimensions: [0.764, 0.26, 0.018]
+    position: [0.40249200000410207, 0.608718, 0.3977]
+    orientation: [0.0, 0.0, 1.0, -2.0510342851533115e-10]
+  - type: box
+    dimensions: [0.764, 0.26, 0.018]
+    position: [0.40249200000410207, 0.608718, 0.7243]
+    orientation: [0.0, 0.0, 1.0, -2.0510342851533115e-10]
+  - type: box
+    dimensions: [0.78, 0.005, 1.06]
+    position: [0.4024919999435966, 0.7562180000000001, 0.53]
+    orientation: [0.0, 0.0, 1.0, -2.0510342851533115e-10]
+attached:
+- id: box
+  link: 2f85_tcp
+  touch_links: [robotiq_85_base_link, robotiq_85_left_finger_link, robotiq_85_left_finger_tip_link,
+    robotiq_85_left_inner_knuckle_link, robotiq_85_left_knuckle_link, robotiq_85_right_finger_link,
+    robotiq_85_right_finger_tip_link, robotiq_85_right_inner_knuckle_link, robotiq_85_right_knuckle_link]
+  frame_id: 2f85_tcp
+  pose:
+    position: [0.0, 0.0, 0.0]
+    orientation: [0.0, 0.0, 0.0, 1.0]
+  primitives:
+  - type: box
+    dimensions: [0.04, 0.24, 0.16]
+    position: [0.0, 0.0, 0.055]
+    orientation: [0.0, 0.0, 0.0, 1.0]

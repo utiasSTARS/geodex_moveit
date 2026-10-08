@@ -1,0 +1,10 @@
+# The headless shelf demo publishes this fixed joint state, the configuration of the middle
+# compartment. It lies inside the FR3 joint limits.
+joints:
+  fr3_joint1: 0.17437682033801927
+  fr3_joint2: -0.20945855099150418
+  fr3_joint3: 0.44316787279977593
+  fr3_joint4: -2.1265828516448
+  fr3_joint5: 1.8934053547623304
+  fr3_joint6: 2.1036918818155588
+  fr3_joint7: 1.144052437074027

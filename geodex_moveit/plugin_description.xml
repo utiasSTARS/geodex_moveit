@@ -1,0 +1,6 @@
+<library path="geodex_moveit">
+  <class name="geodex_moveit/GeodexPlanner" type="geodex_moveit::GeodexPlannerManager"
+         base_class_type="planning_interface::PlannerManager">
+    <description>Sampling-based planning on Riemannian configuration spaces with geodex.</description>
+  </class>
+</library>

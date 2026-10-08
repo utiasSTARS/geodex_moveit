@@ -1,0 +1,77 @@
+# An FR3 with a Robotiq 2F-85 on a table, in fr3_link0. The table top is a 1.7 x 1.7 x 0.02 m slab
+# with its top face at z = 0, built from four boxes around a cutout under the base. The shelf of the
+# FR3 shelf demo stands on the table to the robot's right, centered at (0, -0.62) m with its open
+# front face at y = -0.48 m facing the robot. The gripper holds the demo's 0.04 x 0.24 x 0.16 m box
+# between its finger pads, with the box center 0.055 m along the z axis of 2f85_tcp.
+world:
+- id: table
+  frame_id: fr3_link0
+  pose:
+    position: [0.0, 0.0, 0.0]
+    orientation: [0.0, 0.0, 0.0, 1.0]
+  primitives:
+  - type: box
+    dimensions: [0.694255498, 1.7, 0.02]
+    position: [-0.502872251, 0.0, -0.01]
+    orientation: [0.0, 0.0, 0.0, 1.0]
+  - type: box
+    dimensions: [0.769434089, 1.7, 0.02]
+    position: [0.465282955, 0.0, -0.01]
+    orientation: [0.0, 0.0, 0.0, 1.0]
+  - type: box
+    dimensions: [0.236310413, 0.743814779, 0.02]
+    position: [-0.037589296, 0.47809261, -0.01]
+    orientation: [0.0, 0.0, 0.0, 1.0]
+  - type: box
+    dimensions: [0.236310413, 0.740279874, 0.02]
+    position: [-0.037589296, -0.479860063, -0.01]
+    orientation: [0.0, 0.0, 0.0, 1.0]
+- id: shelf
+  frame_id: fr3_link0
+  pose:
+    position: [0.0, 0.0, 0.0]
+    orientation: [0.0, 0.0, 0.0, 1.0]
+  primitives:
+  - type: box
+    dimensions: [0.018, 0.28, 1.06]
+    position: [-0.391, -0.62, 0.53]
+    orientation: [0.0, 0.0, 0.0, 1.0]
+  - type: box
+    dimensions: [0.018, 0.28, 1.06]
+    position: [0.391, -0.62, 0.53]
+    orientation: [0.0, 0.0, 0.0, 1.0]
+  - type: box
+    dimensions: [0.8, 0.28, 0.018]
+    position: [0.0, -0.62, 1.051]
+    orientation: [0.0, 0.0, 0.0, 1.0]
+  - type: box
+    dimensions: [0.764, 0.28, 0.08]
+    position: [0.0, -0.62, 0.04]
+    orientation: [0.0, 0.0, 0.0, 1.0]
+  - type: box
+    dimensions: [0.764, 0.26, 0.018]
+    position: [0.0, -0.61, 0.3977]
+    orientation: [0.0, 0.0, 0.0, 1.0]
+  - type: box
+    dimensions: [0.764, 0.26, 0.018]
+    position: [0.0, -0.61, 0.7243]
+    orientation: [0.0, 0.0, 0.0, 1.0]
+  - type: box
+    dimensions: [0.78, 0.005, 1.06]
+    position: [0.0, -0.7575, 0.53]
+    orientation: [0.0, 0.0, 0.0, 1.0]
+attached:
+- id: box
+  link: 2f85_tcp
+  touch_links: [robotiq_85_base_link, robotiq_85_left_finger_link, robotiq_85_left_finger_tip_link, robotiq_85_left_inner_knuckle_link,
+    robotiq_85_left_knuckle_link, robotiq_85_right_finger_link, robotiq_85_right_finger_tip_link, robotiq_85_right_inner_knuckle_link,
+    robotiq_85_right_knuckle_link]
+  frame_id: 2f85_tcp
+  pose:
+    position: [0.0, 0.0, 0.0]
+    orientation: [0.0, 0.0, 0.0, 1.0]
+  primitives:
+  - type: box
+    dimensions: [0.04, 0.24, 0.16]
+    position: [0.0, 0.0, 0.055]
+    orientation: [0.0, 0.0, 0.0, 1.0]

@@ -1,0 +1,13 @@
+# Parameters of the FR3 shelf demo for the Euclidean metric. Every value not set here keeps the
+# default of geodex_moveit/params/geodex_moveit_parameters.yaml.
+robot: fr3_arm_gripper
+end_effector_link: 2f85_tcp
+planner:
+  collision_check_resolution: 0.002
+smoothing:
+  time_fraction: 0.1
+obstacle_padding: 0.000404
+totg:
+  path_tolerance: 0.0001
+  resample_dt: 0.05
+  min_angle_change: 0.001
