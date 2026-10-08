@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 cmake_minimum_required(VERSION 3.22)
-project(geodex_moveit_demos NONE)
+project(geodex_moveit_demos LANGUAGES CXX)
 
 find_package(ament_cmake REQUIRED)
 
